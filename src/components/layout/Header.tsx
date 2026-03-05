@@ -41,7 +41,7 @@ export function Header() {
         {/* Auth */}
         <div className="hidden md:flex md:items-center md:gap-4">
           {isSignedIn ? (
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
           ) : (
             <div className="flex items-center gap-3">
               <SignInButton mode="modal">
@@ -93,7 +93,7 @@ export function Header() {
             </Link>
             <div className="border-t border-zinc-800 pt-4">
               {isSignedIn ? (
-                <UserButton afterSignOutUrl="/" />
+                <UserButton />
               ) : (
                 <div className="flex gap-3">
                   <SignInButton mode="modal">
