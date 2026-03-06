@@ -122,12 +122,17 @@ model AgentSkill {
   name        String
   slug        String   @unique
   description String   @db.Text
+  content     String?  @db.Text // 详细介绍内容
   author      String?
+  authorUrl   String?  // 作者主页
   category    String?  // coding, productivity, automation, research, creative
   tags        String[]
   downloads   Int      @default(0)
   rating      Float?   // 1-5
   version     String?
+  features    String?  @db.Text // 功能特性 JSON
+  requirements String? @db.Text // 使用要求
+  usage       String?  @db.Text // 使用方法
   featured    Boolean  @default(false)
   published   Boolean  @default(true)
   createdAt   DateTime @default(now())

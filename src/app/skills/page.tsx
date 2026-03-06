@@ -87,22 +87,23 @@ export default async function SkillsPage({
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
                 {dailyHot.map((skill, i) => (
-                  <div
+                  <Link
                     key={skill.id}
+                    href={`/skills/${skill.slug}`}
                     className="group rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition hover:border-orange-500/50 hover:bg-zinc-800/50"
                   >
                     <div className="flex items-center gap-2 mb-2">
                       <span className="flex h-6 w-6 items-center justify-center rounded bg-orange-500/20 text-xs font-bold text-orange-400">
                         {i + 1}
                       </span>
-                      <h3 className="font-medium truncate">{skill.name}</h3>
+                      <h3 className="font-medium truncate group-hover:text-orange-400 transition">{skill.name}</h3>
                     </div>
                     <p className="text-xs text-zinc-500 line-clamp-2">{skill.description}</p>
                     <div className="mt-2 flex items-center gap-2 text-xs text-zinc-400">
                       <Download className="h-3 w-3" />
                       {skill.downloads.toLocaleString()}
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </section>
@@ -128,7 +129,7 @@ export default async function SkillsPage({
                 </thead>
                 <tbody className="divide-y divide-zinc-800">
                   {topDownloads.map((skill, i) => (
-                    <tr key={skill.id} className="hover:bg-zinc-800/30">
+                    <tr key={skill.id} className="hover:bg-zinc-800/30 cursor-pointer">
                       <td className="px-4 py-3">
                         <span className={`flex h-6 w-6 items-center justify-center rounded text-xs font-bold ${
                           i < 3 ? "bg-yellow-500/20 text-yellow-400" : "bg-zinc-800 text-zinc-400"
@@ -137,10 +138,10 @@ export default async function SkillsPage({
                         </span>
                       </td>
                       <td className="px-4 py-3">
-                        <div>
+                        <Link href={`/skills/${skill.slug}`} className="block hover:text-indigo-400 transition">
                           <p className="font-medium">{skill.name}</p>
                           <p className="text-xs text-zinc-500 line-clamp-1">{skill.description}</p>
-                        </div>
+                        </Link>
                       </td>
                       <td className="px-4 py-3">
                         <span className="rounded-full bg-zinc-800 px-2 py-1 text-xs text-zinc-400">
@@ -174,11 +175,12 @@ export default async function SkillsPage({
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
                 {weeklyHot.map((skill) => (
-                  <div
+                  <Link
                     key={skill.id}
+                    href={`/skills/${skill.slug}`}
                     className="group rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 transition hover:border-green-500/50 hover:bg-zinc-800/50"
                   >
-                    <h3 className="font-medium truncate mb-2">{skill.name}</h3>
+                    <h3 className="font-medium truncate mb-2 group-hover:text-green-400 transition">{skill.name}</h3>
                     <p className="text-xs text-zinc-500 line-clamp-2 mb-3">{skill.description}</p>
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-zinc-400">
@@ -192,7 +194,7 @@ export default async function SkillsPage({
                         </span>
                       )}
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </section>
