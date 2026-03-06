@@ -1,462 +1,476 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
+// 从 ClawHub 爬取的真实 skills 数据
 const skills = [
-  // 编程开发
+  // Highlighted Skills
   {
-    name: "Code Reviewer",
-    slug: "code-reviewer",
-    description: "智能代码审查助手，自动检测代码问题、安全漏洞和优化建议。",
-    sourceUrl: "https://clawhub.com/skills/code-reviewer",
-    author: "OpenClaw",
-    category: "coding",
-    tags: ["代码审查", "安全", "优化"],
-    downloads: 125000,
-    rating: 4.9,
+    name: "Trello",
+    slug: "trello",
+    description: "Manage Trello boards, lists, and cards via the Trello REST API.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/trello",
+    author: "@steipete",
+    category: "productivity",
+    tags: ["trello", "project-management", "api"],
+    downloads: 19500,
+    rating: 4.6,
     featured: true,
-    content: `Code Reviewer 是一个专业的代码审查 AI 助手，能够帮助你：
+    content: `Trello skill allows you to manage Trello boards, lists, and cards via the Trello REST API.
 
-- **自动检测代码问题**：识别潜在的 bug、性能问题和代码异味
-- **安全漏洞扫描**：检测常见的安全漏洞如 SQL 注入、XSS 等
-- **代码优化建议**：提供代码重构和性能优化建议
-- **最佳实践检查**：确保代码符合行业最佳实践
+## 功能
 
-支持多种编程语言，包括 JavaScript、TypeScript、Python、Java、Go 等。`,
-    features: `- 多语言支持：JavaScript, TypeScript, Python, Java, Go, Rust 等
-- 实时分析：提交代码时自动触发审查
-- 详细报告：生成清晰的审查报告，包含问题描述和修复建议
-- 自定义规则：支持配置团队特定的代码规范
-- CI/CD 集成：轻松集成到现有开发流程`,
-    usage: `1. 在项目中安装 Code Reviewer skill
-2. 配置审查规则和偏好设置
-3. 提交代码或创建 PR 时自动触发
-4. 查看审查报告并根据建议修改代码`,
+- 创建、更新、删除看板
+- 管理列表和卡片
+- 移动卡片
+- 添加成员和标签
+- 查看项目和进度`,
   },
   {
-    name: "Git Expert",
-    slug: "git-expert",
-    description: "Git 命令和最佳实践专家，解决各种版本控制问题。",
-    sourceUrl: "https://clawhub.com/skills/git-expert",
-    author: "DevTools",
-    category: "coding",
-    tags: ["Git", "版本控制"],
-    downloads: 98000,
+    name: "Slack",
+    slug: "slack",
+    description: "Use when you need to control Slack from Clawdbot via the slack tool, including reacting to messages or pinning/unpinning items in Slack channels or DMs.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/slack",
+    author: "@steipete",
+    category: "productivity",
+    tags: ["slack", "communication", "messaging"],
+    downloads: 22000,
     rating: 4.7,
     featured: true,
-    content: `Git Expert 是你的 Git 版本控制专家助手。无论是解决合并冲突、回滚代码，还是理解复杂的 Git 命令，Git Expert 都能提供清晰、准确的指导。
+    content: `Slack skill enables you to control Slack from your AI agent.
 
-## 主要功能
+## 功能
 
-### 命令解释
-详细的 Git 命令解释和示例，帮助你理解每个命令的作用和参数。
-
-### 冲突解决
-当你遇到合并冲突时，Git Expert 会分析冲突原因并提供解决方案。
-
-### 工作流建议
-根据团队规模和项目特点，推荐最适合的 Git 工作流。`,
-    features: `- Git 命令解释和示例
-- 冲突解决策略指导
-- 分支管理最佳实践
-- 历史记录查询和分析
-- Git 工作流建议`,
-    usage: `直接向 Git Expert 描述你的问题，它会提供详细的解决方案和命令示例。`,
+- 发送消息到频道或私聊
+- 回复和反应消息
+- 置顶/取消置顶消息
+- 管理频道
+- 搜索消息和文件`,
   },
   {
-    name: "API Designer",
-    slug: "api-designer",
-    description: "设计和文档化 RESTful API，生成 OpenAPI 规范。",
-    sourceUrl: "https://clawhub.com/skills/api-designer",
-    author: "APIHub",
-    category: "coding",
-    tags: ["API", "OpenAPI", "文档"],
-    downloads: 76000,
-    rating: 4.6,
-    content: `API Designer 帮助你设计规范、文档完善的 RESTful API。只需描述你的需求，它会生成完整的 API 设计和 OpenAPI 文档。
+    name: "Caldav Calendar",
+    slug: "caldav-calendar",
+    description: "Sync and query CalDAV calendars (iCloud, Google, Fastmail, Nextcloud, etc.) using vdirsyncer + khal. Works on Linux.",
+    sourceUrl: "https://clawhub.com/kn7bxdhae07mn5rkhw363hyen17ymt5m/caldav-calendar",
+    author: "@Asleep123",
+    category: "productivity",
+    tags: ["calendar", "caldav", "sync"],
+    downloads: 16600,
+    rating: 4.8,
+    featured: true,
+    content: `CalDAV Calendar skill syncs and queries calendars from various providers.
+
+## 支持的平台
+
+- iCloud Calendar
+- Google Calendar
+- Fastmail
+- Nextcloud
+- 其他 CalDAV 兼容服务
+
+## 功能
+
+- 同步日历事件
+- 查询日程
+- 创建和管理事件
+- 多日历支持`,
+  },
+  {
+    name: "Answer Overflow",
+    slug: "answer-overflow",
+    description: "Search indexed Discord community discussions via Answer Overflow. Find solutions to coding problems, library issues, and community Q&A that only exist in Discord conversations.",
+    sourceUrl: "https://clawhub.com/kn7ehk5erw07et6p0vq4k451ws802vgd/answeroverflow",
+    author: "@RhysSullivan",
+    category: "research",
+    tags: ["discord", "search", "community", "qna"],
+    downloads: 9700,
+    rating: 4.5,
+    featured: true,
+    content: `Answer Overflow skill searches indexed Discord community discussions.
+
+## 用途
+
+- 查找编程问题的解决方案
+- 搜索库和框架的使用问题
+- 发现社区讨论和最佳实践
+- 获取 Discord 上的独特内容`,
+  },
+
+  // Popular Skills
+  {
+    name: "Self-Improving Agent",
+    slug: "self-improving-agent",
+    description: "Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fails unexpectedly, (2) User corrects Claude's output, (3) Claude realizes it made a mistake.",
+    sourceUrl: "https://clawhub.com/kn70cjr952qdec1nx70zs6wefn7ynq2t/self-improving-agent",
+    author: "@pskoett",
+    category: "automation",
+    tags: ["learning", "improvement", "self-correction"],
+    downloads: 120000,
+    rating: 4.9,
+    featured: true,
+    content: `Self-Improving Agent enables AI agents to learn from mistakes and continuously improve.
+
+## 核心功能
+
+- 捕获错误和纠正
+- 学习用户反馈
+- 建立知识库
+- 避免重复错误
+- 持续优化行为
 
 ## 使用场景
 
-- **新项目启动**：快速设计 API 架构
-- **文档生成**：从现有代码生成 OpenAPI 规范
-- **API 审查**：检查 API 设计是否符合最佳实践`,
-    features: `- RESTful API 设计建议
-- OpenAPI 3.0 规范生成
-- 请求/响应示例生成
-- API 命名规范检查
-- 版本管理建议`,
-    usage: `描述你的 API 需求，API Designer 会生成完整的 API 设计文档。`,
+1. 命令执行失败时
+2. 用户纠正 AI 输出时
+3. AI 意识到错误时`,
   },
   {
-    name: "Test Generator",
-    slug: "test-generator",
-    description: "自动生成单元测试和集成测试代码。",
-    sourceUrl: "https://clawhub.com/skills/test-generator",
-    author: "QA Labs",
-    category: "coding",
-    tags: ["测试", "自动化"],
-    downloads: 65000,
-    rating: 4.5,
-    content: `Test Generator 能够根据你的代码自动生成高质量的测试用例，提高代码覆盖率和测试效率。
+    name: "Tavily Web Search",
+    slug: "tavily-web-search",
+    description: "AI-optimized web search via Tavily API. Returns concise, relevant results for AI agents.",
+    sourceUrl: "https://clawhub.com/kn7azq5e6sw0fbwwzdpcwvvjzd7z0x4z/tavily-search",
+    author: "@arun-8687",
+    category: "research",
+    tags: ["search", "web", "api"],
+    downloads: 101000,
+    rating: 4.7,
+    featured: true,
+    content: `Tavily Web Search provides AI-optimized web search results.
 
-支持多种测试框架：Jest、PyTest、JUnit、Go testing 等。`,
-    features: `- 单元测试生成
-- 集成测试生成
-- 边界条件检测
-- Mock 数据生成
-- 多框架支持：Jest, PyTest, JUnit 等`,
+## 特点
+
+- 专为 AI 优化的搜索结果
+- 返回简洁相关的内容
+- 支持多种搜索类型
+- API 密钥需要配置
+
+## 使用
+
+调用 Tavily API 进行网络搜索，获取针对 AI 优化的结果。`,
   },
   {
-    name: "Database Architect",
-    slug: "database-architect",
-    description: "数据库设计优化专家，SQL 查询优化建议。",
-    sourceUrl: "https://clawhub.com/skills/database-architect",
-    author: "DataPro",
-    category: "coding",
-    tags: ["数据库", "SQL", "优化"],
-    downloads: 54000,
+    name: "Find Skills",
+    slug: "find-skills",
+    description: "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities.",
+    sourceUrl: "https://clawhub.com/kn77ajmmqw3cgnc3ay1x3e0ccd805hsw/find-skills",
+    author: "@JimLiuxinghai",
+    category: "automation",
+    tags: ["skills", "discovery", "installation"],
+    downloads: 98100,
     rating: 4.6,
-    content: `Database Architect 是数据库设计和优化专家，帮助你设计高效的数据库结构，优化 SQL 查询性能。
+    featured: true,
+    content: `Find Skills 帮助用户发现和安装 agent skills。
 
-支持：PostgreSQL、MySQL、MongoDB、Redis 等。`,
-    features: `- 数据库模式设计
-- 索引优化建议
-- SQL 查询分析和优化
-- 数据迁移方案
-- 多数据库支持：PostgreSQL, MySQL, MongoDB 等`,
+## 触发场景
+
+- "how do I do X"
+- "find a skill for X"
+- "is there a skill that can..."
+- 用户想要扩展 AI 能力时
+
+## 功能
+
+- 搜索可用 skills
+- 推荐 skills
+- 安装 skills`,
   },
-
-  // 效率提升
   {
-    name: "Meeting Summarizer",
-    slug: "meeting-summarizer",
-    description: "会议记录摘要助手，自动提取关键信息和行动项。",
-    sourceUrl: "https://clawhub.com/skills/meeting-summarizer",
-    author: "ProductivityAI",
+    name: "Gog",
+    slug: "gog",
+    description: "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/gog",
+    author: "@steipete",
     category: "productivity",
-    tags: ["会议", "摘要", "笔记"],
-    downloads: 156000,
+    tags: ["google", "gmail", "drive", "calendar"],
+    downloads: 86100,
     rating: 4.8,
     featured: true,
-    content: `Meeting Summarizer 自动将会议录音或笔记转化为结构化摘要，提取关键决策、行动项和责任人。
+    content: `Gog 是 Google Workspace 的命令行工具。
 
-## 功能特点
+## 支持的服务
 
-- **语音转文字**：支持多种语言的会议录音转录
-- **智能摘要**：自动提取会议要点
-- **行动项识别**：识别并跟踪后续任务
-- **多平台集成**：支持 Zoom、Teams、Meet 等`,
-    features: `- 会议录音转录和摘要
-- 自动提取关键决策
-- 行动项和责任人识别
-- 多语言支持
-- 与主流会议工具集成`,
-    usage: `上传会议录音或粘贴会议笔记，Meeting Summarizer 会自动生成结构化摘要。`,
+- **Gmail**: 发送、搜索、管理邮件
+- **Calendar**: 创建事件、查看日程
+- **Drive**: 上传、下载、管理文件
+- **Contacts**: 管理联系人
+- **Sheets**: 读写电子表格
+- **Docs**: 创建和管理文档`,
   },
   {
-    name: "Email Writer",
-    slug: "email-writer",
-    description: "专业邮件撰写助手，支持多种场景和语言风格。",
-    sourceUrl: "https://clawhub.com/skills/email-writer",
-    author: "CommTools",
+    name: "Summarize",
+    slug: "summarize",
+    description: "Summarize URLs or files with the summarize CLI (web, PDFs, images, audio, YouTube).",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/summarize",
+    author: "@steipete",
     category: "productivity",
-    tags: ["邮件", "写作", "沟通"],
-    downloads: 142000,
-    rating: 4.7,
-    featured: true,
-    content: `Email Writer 帮助你快速撰写专业、得体的邮件。无论是商务沟通、求职申请还是日常回复，都能生成符合场景的邮件内容。
-
-## 支持场景
-
-- 商务合作邀请
-- 求职申请和面试回复
-- 客户投诉处理
-- 项目进度汇报
-- 会议安排确认`,
-    features: `- 多场景模板：商务、求职、投诉、感谢等
-- 语言风格调整：正式、友好、简洁等
-- 多语言支持
-- 邮件回复建议
-- 语气检查和优化`,
-  },
-  {
-    name: "Task Manager",
-    slug: "task-manager",
-    description: "智能任务管理，自动分类、优先级排序和提醒。",
-    sourceUrl: "https://clawhub.com/skills/task-manager",
-    author: "TaskAI",
-    category: "productivity",
-    tags: ["任务", "时间管理"],
-    downloads: 89000,
-    rating: 4.6,
-    content: `Task Manager 是一个智能任务管理助手，帮助你高效管理待办事项，自动分类和排序任务优先级。`,
-    features: `- 智能任务分类
-- 优先级自动排序
-- 截止日期提醒
-- 任务依赖分析
-- 日报/周报生成`,
-  },
-  {
-    name: "Document Formatter",
-    slug: "document-formatter",
-    description: "文档格式化和美化，支持多种文档类型。",
-    sourceUrl: "https://clawhub.com/skills/document-formatter",
-    author: "DocTools",
-    category: "productivity",
-    tags: ["文档", "格式化"],
-    downloads: 67000,
-    rating: 4.4,
-    content: `Document Formatter 帮助你快速格式化各类文档，使其更加专业和易读。`,
-    features: `- Markdown 格式化
-- 代码块美化
-- 表格格式化
-- 标题层级优化
-- 列表格式统一`,
-  },
-  {
-    name: "Translation Pro",
-    slug: "translation-pro",
-    description: "专业翻译助手，支持 50+ 语言，保持上下文一致性。",
-    sourceUrl: "https://clawhub.com/skills/translation-pro",
-    author: "LangAI",
-    category: "productivity",
-    tags: ["翻译", "多语言"],
-    downloads: 178000,
-    rating: 4.9,
-    featured: true,
-    content: `Translation Pro 是一款专业的 AI 翻译助手，支持 50+ 语言互译，能够理解上下文并保持专业术语的一致性。
-
-## 翻译特点
-
-- **上下文感知**：理解句子在段落中的含义
-- **术语一致性**：专业术语翻译统一
-- **本地化适配**：根据目标语言习惯调整表达
-- **批量处理**：支持长文档批量翻译`,
-    features: `- 支持 50+ 语言
-- 上下文感知翻译
-- 专业术语一致性
-- 文档级翻译记忆
-- 实时翻译模式`,
-    usage: `粘贴需要翻译的文本，选择目标语言，Translation Pro 会生成高质量的翻译结果。`,
-  },
-
-  // 自动化
-  {
-    name: "Web Scraper",
-    slug: "web-scraper",
-    description: "智能网页数据抓取，支持复杂页面结构。",
-    sourceUrl: "https://clawhub.com/skills/web-scraper",
-    author: "DataMine",
-    category: "automation",
-    tags: ["爬虫", "数据提取"],
-    downloads: 134000,
-    rating: 4.7,
-    featured: true,
-    content: `Web Scraper 是一个智能网页数据抓取工具，能够自动识别网页结构并提取所需数据。
-
-## 抓取能力
-
-- **静态页面**：标准 HTML 页面数据提取
-- **动态内容**：JavaScript 渲染的内容抓取
-- **分页处理**：自动翻页抓取
-- **数据清洗**：自动格式化和去重`,
-    features: `- 自动识别网页结构
-- 支持动态加载内容
-- 分页自动抓取
-- 数据清洗和格式化
-- 导出多种格式：JSON, CSV, Excel`,
-    usage: `提供目标网页 URL 和需要提取的数据描述，Web Scraper 会自动完成数据抓取。`,
-  },
-  {
-    name: "File Organizer",
-    slug: "file-organizer",
-    description: "自动文件分类和整理，保持工作区整洁。",
-    sourceUrl: "https://clawhub.com/skills/file-organizer",
-    author: "OrgTools",
-    category: "automation",
-    tags: ["文件管理", "自动化"],
-    downloads: 45000,
-    rating: 4.3,
-    content: `File Organizer 自动根据文件类型、日期和内容对文件进行分类整理，让你的工作区始终保持整洁。`,
-    features: `- 智能文件分类
-- 自定义整理规则
-- 重复文件检测
-- 批量重命名
-- 文件夹结构优化`,
-  },
-  {
-    name: "Schedule Automator",
-    slug: "schedule-automator",
-    description: "日程自动化管理，智能安排会议和提醒。",
-    sourceUrl: "https://clawhub.com/skills/schedule-automator",
-    author: "TimeWise",
-    category: "automation",
-    tags: ["日程", "自动化"],
-    downloads: 56000,
+    tags: ["summarize", "pdf", "web", "audio"],
+    downloads: 81900,
     rating: 4.5,
-    content: `Schedule Automator 帮助你智能管理日程，自动安排会议时间，发送提醒和准备通知。`,
-    features: `- 智能会议时间安排
-- 日历冲突检测
-- 自动发送邀请和提醒
-- 会议准备通知
-- 与主流日历集成`,
+    content: `Summarize skill 提供内容摘要功能。
+
+## 支持的类型
+
+- 网页 URL
+- PDF 文件
+- 图片
+- 音频文件
+- YouTube 视频
+
+## 使用
+
+提供 URL 或文件路径，自动生成内容摘要。`,
   },
   {
-    name: "Report Generator",
-    slug: "report-generator",
-    description: "自动生成各类报告，支持自定义模板。",
-    sourceUrl: "https://clawhub.com/skills/report-generator",
-    author: "ReportAI",
+    name: "Github",
+    slug: "github",
+    description: "Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh run`, and `gh api` for issues, PRs, CI runs, and advanced queries.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/github",
+    author: "@steipete",
+    category: "coding",
+    tags: ["github", "git", "ci-cd", "api"],
+    downloads: 72000,
+    rating: 4.7,
+    content: `Github skill 通过 gh CLI 与 GitHub 交互。
+
+## 功能
+
+- **Issues**: 创建、查看、管理 issues
+- **Pull Requests**: 创建、审查、合并 PRs
+- **CI Runs**: 查看 CI 状态和日志
+- **API**: 高级 API 查询
+
+## 命令示例
+
+\`\`\`bash
+gh issue list
+gh pr create
+gh run watch
+gh api repos/:owner/:repo
+\`\`\``,
+  },
+  {
+    name: "Weather",
+    slug: "weather",
+    description: "Get current weather and forecasts (no API key required).",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/weather",
+    author: "@steipete",
+    category: "productivity",
+    tags: ["weather", "forecast"],
+    downloads: 61500,
+    rating: 4.4,
+    content: `Weather skill 获取天气信息，无需 API 密钥。
+
+## 功能
+
+- 当前天气
+- 天气预报
+- 多城市支持
+- 温度、湿度、风速等详细信息`,
+  },
+  {
+    name: "Proactive Agent",
+    slug: "proactive-agent",
+    description: "Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Now with WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns.",
+    sourceUrl: "https://clawhub.com/kn7agvhxan0vcwfmhrjhwg4n9s802d7k/proactive-agent",
+    author: "@halthelobster",
     category: "automation",
-    tags: ["报告", "自动化", "模板"],
-    downloads: 78000,
+    tags: ["proactive", "autonomous", "cron"],
+    downloads: 59700,
+    rating: 4.8,
+    featured: true,
+    content: `Proactive Agent 将 AI 代理从任务执行者转变为主动合作伙伴。
+
+## 核心功能
+
+- **WAL Protocol**: 写入前日志协议
+- **Working Buffer**: 工作缓冲区
+- **Autonomous Crons**: 自主定时任务
+- **持续改进模式**
+
+## 特点
+
+- 预测用户需求
+- 主动提供建议
+- 自动化工作流
+- 经实战测试的模式`,
+  },
+  {
+    name: "Sonoscli",
+    slug: "sonoscli",
+    description: "Control Sonos speakers (discover/status/play/volume/group).",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/sonoscli",
+    author: "@steipete",
+    category: "automation",
+    tags: ["sonos", "audio", "smart-home"],
+    downloads: 48100,
+    rating: 4.3,
+    content: `Sonoscli 控制 Sonos 音箱系统。
+
+## 功能
+
+- 发现音箱设备
+- 查看播放状态
+- 控制播放/暂停
+- 调节音量
+- 音箱分组管理`,
+  },
+  {
+    name: "Notion",
+    slug: "notion",
+    description: "Notion API for creating and managing pages, databases, and blocks.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/notion",
+    author: "@steipete",
+    category: "productivity",
+    tags: ["notion", "notes", "database", "api"],
+    downloads: 41400,
     rating: 4.6,
-    content: `Report Generator 根据数据自动生成各类报告，支持自定义模板和多种输出格式。`,
-    features: `- 数据可视化
-- 自定义模板
-- 多种输出格式：PDF, Word, HTML
-- 定时自动生成
-- 数据源集成`,
+    content: `Notion skill 通过 API 管理 Notion 内容。
+
+## 功能
+
+- 创建和编辑页面
+- 管理数据库
+- 操作内容块
+- 搜索内容
+- 添加评论`,
   },
   {
-    name: "Notification Hub",
-    slug: "notification-hub",
-    description: "智能通知聚合和管理，跨平台消息整合。",
-    sourceUrl: "https://clawhub.com/skills/notification-hub",
-    author: "NotifyPro",
+    name: "Nano PDF",
+    slug: "nano-pdf",
+    description: "Edit PDFs with natural-language instructions using the nano-pdf CLI.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/nano-pdf",
+    author: "@steipete",
+    category: "productivity",
+    tags: ["pdf", "edit", "natural-language"],
+    downloads: 38800,
+    rating: 4.5,
+    content: `Nano PDF 使用自然语言指令编辑 PDF 文件。
+
+## 功能
+
+- 自然语言编辑指令
+- 合并 PDF
+- 提取页面
+- 添加注释
+- 格式转换`,
+  },
+  {
+    name: "BluOS CLI",
+    slug: "bluos-cli",
+    description: "BluOS CLI for discovery, playback, grouping, and volume control of BluOS devices.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/bluos",
+    author: "@steipete",
     category: "automation",
-    tags: ["通知", "消息"],
-    downloads: 34000,
+    tags: ["bluos", "audio", "streaming"],
+    downloads: 25000,
     rating: 4.2,
-    content: `Notification Hub 聚合来自不同平台的通知，智能过滤和优先级排序，让你不错过重要消息。`,
-    features: `- 多平台通知聚合
-- 智能过滤和分类
-- 优先级排序
-- 免打扰模式
-- 通知摘要`,
-  },
+    content: `BluOS CLI 控制 BluOS 音频设备。
 
-  // 研究分析
-  {
-    name: "Research Assistant",
-    slug: "research-assistant",
-    description: "学术研究助手，文献搜索和摘要生成。",
-    sourceUrl: "https://clawhub.com/skills/research-assistant",
-    author: "ScholarAI",
-    category: "research",
-    tags: ["研究", "学术", "文献"],
-    downloads: 92000,
-    rating: 4.8,
-    featured: true,
-    content: `Research Assistant 是学术研究的得力助手，帮助你快速搜索文献、生成摘要和管理参考文献。
+## 功能
 
-## 研究支持
-
-- **文献检索**：多数据库联合搜索
-- **摘要生成**：快速理解论文要点
-- **引用管理**：自动生成参考文献格式
-- **趋势分析**：追踪研究热点`,
-    features: `- 学术文献搜索
-- 论文摘要生成
-- 参考文献格式化
-- 引用关系分析
-- 研究趋势追踪`,
-    usage: `输入研究主题或关键词，Research Assistant 会搜索相关文献并生成摘要和分析报告。`,
+- 发现 BluOS 设备
+- 播放控制
+- 音量调节
+- 设备分组
+- 播放列表管理`,
   },
   {
-    name: "Data Analyzer",
-    slug: "data-analyzer",
-    description: "数据分析助手，自动生成洞察和可视化建议。",
-    sourceUrl: "https://clawhub.com/skills/data-analyzer",
-    author: "DataInsight",
-    category: "research",
-    tags: ["数据分析", "可视化"],
-    downloads: 87000,
+    name: "Himalaya",
+    slug: "himalaya",
+    description: "CLI to manage emails via IMAP/SMTP. List, read, write, reply, forward, search, and organize emails.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/himalaya",
+    author: "@steipete",
+    category: "productivity",
+    tags: ["email", "imap", "smtp"],
+    downloads: 32000,
+    rating: 4.4,
+    content: `Himalaya 是命令行邮件管理工具。
+
+## 功能
+
+- 列出邮件
+- 读取邮件
+- 撰写和发送
+- 回复和转发
+- 搜索邮件
+- 组织文件夹`,
+  },
+  {
+    name: "1Password",
+    slug: "1password",
+    description: "Set up and use 1Password CLI (op). Use for installing the CLI, enabling desktop app integration, signing in, or reading/injecting/running secrets.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/1password",
+    author: "@steipete",
+    category: "productivity",
+    tags: ["security", "passwords", "secrets", "cli"],
+    downloads: 28000,
     rating: 4.7,
-    content: `Data Analyzer 自动分析数据集，发现模式和异常，生成洞察报告和可视化建议。`,
-    features: `- 自动数据探索
-- 统计分析
-- 异常检测
-- 可视化建议
-- 分析报告生成`,
+    content: `1Password skill 设置和使用 1Password CLI。
+
+## 功能
+
+- 安装 op CLI
+- 桌面应用集成
+- 登录管理
+- 读取密钥
+- 注入密钥到环境
+
+## 安全
+
+- 安全存储密码
+- 双因素认证
+- 团队共享`,
   },
   {
-    name: "Competitor Monitor",
-    slug: "competitor-monitor",
-    description: "竞品监控和分析，追踪市场动态。",
-    sourceUrl: "https://clawhub.com/skills/competitor-monitor",
-    author: "MarketAI",
-    category: "research",
-    tags: ["竞品", "市场分析"],
-    downloads: 41000,
-    rating: 4.4,
-    content: `Competitor Monitor 持续监控竞争对手的动态，包括产品更新、定价变化和市场活动。`,
-    features: `- 产品更新监控
-- 定价变化追踪
-- 市场活动分析
-- 社交媒体监控
-- 竞争报告生成`,
-  },
-  {
-    name: "Trend Predictor",
-    slug: "trend-predictor",
-    description: "行业趋势预测，基于数据分析未来走向。",
-    sourceUrl: "https://clawhub.com/skills/trend-predictor",
-    author: "TrendAI",
-    category: "research",
-    tags: ["趋势", "预测", "分析"],
-    downloads: 38000,
-    rating: 4.3,
-    content: `Trend Predictor 分析行业数据，预测未来趋势，帮助你做出前瞻性决策。`,
-    features: `- 历史数据分析
-- 趋势预测模型
-- 关键指标监控
-- 行业报告生成
-- 预警通知`,
-  },
-  {
-    name: "Survey Analyzer",
-    slug: "survey-analyzer",
-    description: "问卷数据分析和报告生成。",
-    sourceUrl: "https://clawhub.com/skills/survey-analyzer",
-    author: "SurveyPro",
-    category: "research",
-    tags: ["问卷", "分析"],
-    downloads: 29000,
-    rating: 4.4,
-    content: `Survey Analyzer 自动分析问卷数据，生成可视化图表和洞察报告。`,
-    features: `- 自动数据清洗
-- 统计分析
-- 可视化图表
-- 开放式问题分析
-- 报告自动生成`,
+    name: "Things Mac",
+    slug: "things-mac",
+    description: "Manage Things 3 via the things CLI on macOS. Add/update projects and todos via URL scheme; read/search/list from the local Things database.",
+    sourceUrl: "https://clawhub.com/kn70pywhg0fyz996kpa8xj89s57yhv26/things-mac",
+    author: "@steipete",
+    category: "productivity",
+    tags: ["things", "todos", "macos", "productivity"],
+    downloads: 22000,
+    rating: 4.5,
+    content: `Things Mac skill 管理 Things 3 任务管理应用。
+
+## 功能
+
+- 添加任务和项目
+- 更新任务状态
+- 搜索任务
+- 列出今日/收件箱
+- 查看项目
+
+## 平台
+
+仅支持 macOS`,
   },
 ];
 
 async function main() {
-  console.log('开始同步 Agent Skills...');
+  console.log('开始同步真实的 Agent Skills (来自 ClawHub)...');
+  
+  // 先清除旧数据
+  await prisma.agentSkill.deleteMany({});
+  console.log('已清除旧数据');
   
   for (const skill of skills) {
-    await prisma.agentSkill.upsert({
-      where: { slug: skill.slug },
-      update: {
-        name: skill.name,
-        description: skill.description,
-        sourceUrl: skill.sourceUrl,
-        content: skill.content,
-        features: skill.features,
-        usage: skill.usage,
-      },
-      create: {
+    await prisma.agentSkill.create({
+      data: {
         ...skill,
         tags: skill.tags,
         published: true,
       },
     });
-    console.log(`已同步: ${skill.name}`);
+    console.log(`已添加: ${skill.name} (${skill.downloads.toLocaleString()} 下载)`);
   }
   
   const total = await prisma.agentSkill.count();
+  const totalDownloads = await prisma.agentSkill.aggregate({
+    _sum: { downloads: true },
+  });
+  
   console.log(`\n✅ Skills 总数: ${total}`);
+  console.log(`✅ 总下载量: ${totalDownloads._sum.downloads?.toLocaleString()}`);
 }
 
 main().catch(console.error).finally(() => prisma.$disconnect());
