@@ -116,6 +116,28 @@ model AITool {
   @@index([featured])
 }
 
+// Agent Skill
+model AgentSkill {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String   @db.Text
+  author      String?
+  category    String?  // coding, productivity, automation, research, creative
+  tags        String[]
+  downloads   Int      @default(0)
+  rating      Float?   // 1-5
+  version     String?
+  featured    Boolean  @default(false)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([downloads])
+  @@index([category])
+  @@index([featured])
+}
+
 // 学习路径
 model LearningPath {
   id          String    @id @default(cuid())

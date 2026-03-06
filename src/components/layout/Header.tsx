@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useAuth, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-import { Bot, BookOpen, Menu, X, Settings, Wrench } from "lucide-react";
+import { Bot, BookOpen, Menu, X, Settings, Wrench, Zap } from "lucide-react";
 import { useState } from "react";
 
 export function Header() {
@@ -42,6 +42,13 @@ export function Header() {
           >
             <Wrench className="h-4 w-4" />
             工具库
+          </Link>
+          <Link
+            href="/skills"
+            className="flex items-center gap-1.5 text-sm font-medium text-zinc-400 transition hover:text-white"
+          >
+            <Zap className="h-4 w-4" />
+            Skills
           </Link>
         </div>
 
