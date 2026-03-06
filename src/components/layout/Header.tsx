@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useAuth, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-import { Bot, BookOpen, Menu, X } from "lucide-react";
+import { Bot, BookOpen, Menu, X, Settings } from "lucide-react";
 import { useState } from "react";
 
 export function Header() {
@@ -41,7 +41,16 @@ export function Header() {
         {/* Auth */}
         <div className="hidden md:flex md:items-center md:gap-4">
           {isSignedIn ? (
-            <UserButton />
+            <>
+              <Link
+                href="/admin"
+                className="flex items-center gap-1.5 text-sm font-medium text-zinc-400 transition hover:text-white"
+              >
+                <Settings className="h-4 w-4" />
+                管理
+              </Link>
+              <UserButton />
+            </>
           ) : (
             <div className="flex items-center gap-3">
               <SignInButton mode="modal">
@@ -91,6 +100,16 @@ export function Header() {
               <BookOpen className="h-4 w-4" />
               文章
             </Link>
+            {isSignedIn && (
+              <Link
+                href="/admin"
+                className="flex items-center gap-2 text-zinc-400 hover:text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Settings className="h-4 w-4" />
+                管理后台
+              </Link>
+            )}
             <div className="border-t border-zinc-800 pt-4">
               {isSignedIn ? (
                 <UserButton />
