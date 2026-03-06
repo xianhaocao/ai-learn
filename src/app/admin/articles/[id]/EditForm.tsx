@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { MarkdownContent } from "@/components/MarkdownContent";
 
 interface Article {
   id: string;
@@ -101,13 +102,22 @@ export function EditArticleForm({ article }: EditArticleFormProps) {
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium">内容</label>
+        <label className="mb-2 block text-sm font-medium">内容 (支持 Markdown)</label>
         <textarea
           value={formData.content}
           onChange={(e) => setFormData({ ...formData, content: e.target.value })}
           className="w-full rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-2 font-mono text-white"
-          rows={10}
+          rows={15}
         />
+        <p className="mt-1 text-xs text-zinc-500">支持 Markdown 格式：标题、列表、代码块、链接等</p>
+      </div>
+
+      {/* Preview */}
+      <div>
+        <label className="mb-2 block text-sm font-medium text-zinc-400">预览</label>
+        <div className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-6 min-h-[200px]">
+          <MarkdownContent content={formData.content} />
+        </div>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">

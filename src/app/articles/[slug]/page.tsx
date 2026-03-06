@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, ExternalLink, Tag } from "lucide-react";
 import { Header } from "@/components/layout";
 import { Footer } from "@/components/layout";
 import { Comments } from "@/components/Comments";
+import { MarkdownContent } from "@/components/MarkdownContent";
 import { prisma } from "@/lib/prisma";
 
 export default async function ArticlePage({
@@ -78,11 +79,8 @@ export default async function ArticlePage({
           )}
 
           {/* Content */}
-          <div className="prose prose-invert prose-zinc max-w-none">
-            <div
-              className="whitespace-pre-wrap"
-              dangerouslySetInnerHTML={{ __html: article.content.replace(/\n/g, "<br />") }}
-            />
+          <div className="max-w-none">
+            <MarkdownContent content={article.content} />
           </div>
 
           {/* Source */}
