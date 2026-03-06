@@ -5,6 +5,7 @@ import { Header } from "@/components/layout";
 import { Footer } from "@/components/layout";
 import { Comments } from "@/components/Comments";
 import { MarkdownContent } from "@/components/MarkdownContent";
+import { ShareButtons } from "@/components/ShareButtons";
 import { prisma } from "@/lib/prisma";
 
 export default async function ArticlePage({
@@ -81,6 +82,14 @@ export default async function ArticlePage({
           {/* Content */}
           <div className="max-w-none">
             <MarkdownContent content={article.content} />
+          </div>
+
+          {/* Share */}
+          <div className="mt-8 flex items-center justify-between border-t border-zinc-800 pt-6">
+            <ShareButtons
+              title={article.title}
+              url={`https://ai-learn-git-master-caoxianhao170s-projects.vercel.app/articles/${article.slug}`}
+            />
           </div>
 
           {/* Source */}
