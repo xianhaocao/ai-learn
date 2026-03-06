@@ -123,6 +123,7 @@ model AgentSkill {
   slug        String   @unique
   description String   @db.Text
   content     String?  @db.Text // 详细介绍内容
+  sourceUrl   String?  // 原始链接（clawhub.com 等）
   author      String?
   authorUrl   String?  // 作者主页
   category    String?  // coding, productivity, automation, research, creative

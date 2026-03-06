@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Header } from "@/components/layout";
 import { Footer } from "@/components/layout";
 import { MarkdownContent } from "@/components/MarkdownContent";
-import { Download, Star, ArrowLeft, ExternalLink, Clock, Tag, User, Zap } from "lucide-react";
+import { Download, Star, ArrowLeft, ExternalLink, Clock, Tag, User, Zap, Globe } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -104,6 +104,28 @@ export default async function SkillDetailPage({ params }: Props) {
             </div>
 
             <p className="mt-6 text-lg text-zinc-300">{skill.description}</p>
+
+            {/* Action Buttons */}
+            <div className="mt-6 flex flex-wrap gap-3">
+              {skill.sourceUrl && (
+                <a
+                  href={skill.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-500"
+                >
+                  <Globe className="h-4 w-4" />
+                  访问原链接
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              )}
+              <Link
+                href="/skills"
+                className="inline-flex items-center gap-2 rounded-lg bg-zinc-800 px-4 py-2 text-sm font-medium text-zinc-300 transition hover:bg-zinc-700"
+              >
+                浏览更多 Skills
+              </Link>
+            </div>
 
             {/* Meta Info */}
             <div className="mt-6 flex flex-wrap gap-4 text-sm text-zinc-400">

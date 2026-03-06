@@ -7,6 +7,7 @@ const skills = [
     name: "Code Reviewer",
     slug: "code-reviewer",
     description: "智能代码审查助手，自动检测代码问题、安全漏洞和优化建议。",
+    sourceUrl: "https://clawhub.com/skills/code-reviewer",
     author: "OpenClaw",
     category: "coding",
     tags: ["代码审查", "安全", "优化"],
@@ -30,21 +31,30 @@ const skills = [
 2. 配置审查规则和偏好设置
 3. 提交代码或创建 PR 时自动触发
 4. 查看审查报告并根据建议修改代码`,
-    requirements: `- 需要 AI 模型支持（推荐 GPT-4 或 Claude）
-- 代码仓库访问权限
-- 建议配置 Git Hooks 实现自动触发`,
   },
   {
     name: "Git Expert",
     slug: "git-expert",
     description: "Git 命令和最佳实践专家，解决各种版本控制问题。",
+    sourceUrl: "https://clawhub.com/skills/git-expert",
     author: "DevTools",
     category: "coding",
     tags: ["Git", "版本控制"],
     downloads: 98000,
     rating: 4.7,
     featured: true,
-    content: `Git Expert 是你的 Git 版本控制专家助手。无论是解决合并冲突、回滚代码，还是理解复杂的 Git 命令，Git Expert 都能提供清晰、准确的指导。`,
+    content: `Git Expert 是你的 Git 版本控制专家助手。无论是解决合并冲突、回滚代码，还是理解复杂的 Git 命令，Git Expert 都能提供清晰、准确的指导。
+
+## 主要功能
+
+### 命令解释
+详细的 Git 命令解释和示例，帮助你理解每个命令的作用和参数。
+
+### 冲突解决
+当你遇到合并冲突时，Git Expert 会分析冲突原因并提供解决方案。
+
+### 工作流建议
+根据团队规模和项目特点，推荐最适合的 Git 工作流。`,
     features: `- Git 命令解释和示例
 - 冲突解决策略指导
 - 分支管理最佳实践
@@ -56,12 +66,19 @@ const skills = [
     name: "API Designer",
     slug: "api-designer",
     description: "设计和文档化 RESTful API，生成 OpenAPI 规范。",
+    sourceUrl: "https://clawhub.com/skills/api-designer",
     author: "APIHub",
     category: "coding",
     tags: ["API", "OpenAPI", "文档"],
     downloads: 76000,
     rating: 4.6,
-    content: `API Designer 帮助你设计规范、文档完善的 RESTful API。只需描述你的需求，它会生成完整的 API 设计和 OpenAPI 文档。`,
+    content: `API Designer 帮助你设计规范、文档完善的 RESTful API。只需描述你的需求，它会生成完整的 API 设计和 OpenAPI 文档。
+
+## 使用场景
+
+- **新项目启动**：快速设计 API 架构
+- **文档生成**：从现有代码生成 OpenAPI 规范
+- **API 审查**：检查 API 设计是否符合最佳实践`,
     features: `- RESTful API 设计建议
 - OpenAPI 3.0 规范生成
 - 请求/响应示例生成
@@ -73,12 +90,15 @@ const skills = [
     name: "Test Generator",
     slug: "test-generator",
     description: "自动生成单元测试和集成测试代码。",
+    sourceUrl: "https://clawhub.com/skills/test-generator",
     author: "QA Labs",
     category: "coding",
     tags: ["测试", "自动化"],
     downloads: 65000,
     rating: 4.5,
-    content: `Test Generator 能够根据你的代码自动生成高质量的测试用例，提高代码覆盖率和测试效率。`,
+    content: `Test Generator 能够根据你的代码自动生成高质量的测试用例，提高代码覆盖率和测试效率。
+
+支持多种测试框架：Jest、PyTest、JUnit、Go testing 等。`,
     features: `- 单元测试生成
 - 集成测试生成
 - 边界条件检测
@@ -89,12 +109,15 @@ const skills = [
     name: "Database Architect",
     slug: "database-architect",
     description: "数据库设计优化专家，SQL 查询优化建议。",
+    sourceUrl: "https://clawhub.com/skills/database-architect",
     author: "DataPro",
     category: "coding",
     tags: ["数据库", "SQL", "优化"],
     downloads: 54000,
     rating: 4.6,
-    content: `Database Architect 是数据库设计和优化专家，帮助你设计高效的数据库结构，优化 SQL 查询性能。`,
+    content: `Database Architect 是数据库设计和优化专家，帮助你设计高效的数据库结构，优化 SQL 查询性能。
+
+支持：PostgreSQL、MySQL、MongoDB、Redis 等。`,
     features: `- 数据库模式设计
 - 索引优化建议
 - SQL 查询分析和优化
@@ -107,13 +130,21 @@ const skills = [
     name: "Meeting Summarizer",
     slug: "meeting-summarizer",
     description: "会议记录摘要助手，自动提取关键信息和行动项。",
+    sourceUrl: "https://clawhub.com/skills/meeting-summarizer",
     author: "ProductivityAI",
     category: "productivity",
     tags: ["会议", "摘要", "笔记"],
     downloads: 156000,
     rating: 4.8,
     featured: true,
-    content: `Meeting Summarizer 自动将会议录音或笔记转化为结构化摘要，提取关键决策、行动项和责任人。`,
+    content: `Meeting Summarizer 自动将会议录音或笔记转化为结构化摘要，提取关键决策、行动项和责任人。
+
+## 功能特点
+
+- **语音转文字**：支持多种语言的会议录音转录
+- **智能摘要**：自动提取会议要点
+- **行动项识别**：识别并跟踪后续任务
+- **多平台集成**：支持 Zoom、Teams、Meet 等`,
     features: `- 会议录音转录和摘要
 - 自动提取关键决策
 - 行动项和责任人识别
@@ -125,13 +156,22 @@ const skills = [
     name: "Email Writer",
     slug: "email-writer",
     description: "专业邮件撰写助手，支持多种场景和语言风格。",
+    sourceUrl: "https://clawhub.com/skills/email-writer",
     author: "CommTools",
     category: "productivity",
     tags: ["邮件", "写作", "沟通"],
     downloads: 142000,
     rating: 4.7,
     featured: true,
-    content: `Email Writer 帮助你快速撰写专业、得体的邮件。无论是商务沟通、求职申请还是日常回复，都能生成符合场景的邮件内容。`,
+    content: `Email Writer 帮助你快速撰写专业、得体的邮件。无论是商务沟通、求职申请还是日常回复，都能生成符合场景的邮件内容。
+
+## 支持场景
+
+- 商务合作邀请
+- 求职申请和面试回复
+- 客户投诉处理
+- 项目进度汇报
+- 会议安排确认`,
     features: `- 多场景模板：商务、求职、投诉、感谢等
 - 语言风格调整：正式、友好、简洁等
 - 多语言支持
@@ -142,6 +182,7 @@ const skills = [
     name: "Task Manager",
     slug: "task-manager",
     description: "智能任务管理，自动分类、优先级排序和提醒。",
+    sourceUrl: "https://clawhub.com/skills/task-manager",
     author: "TaskAI",
     category: "productivity",
     tags: ["任务", "时间管理"],
@@ -158,6 +199,7 @@ const skills = [
     name: "Document Formatter",
     slug: "document-formatter",
     description: "文档格式化和美化，支持多种文档类型。",
+    sourceUrl: "https://clawhub.com/skills/document-formatter",
     author: "DocTools",
     category: "productivity",
     tags: ["文档", "格式化"],
@@ -174,13 +216,21 @@ const skills = [
     name: "Translation Pro",
     slug: "translation-pro",
     description: "专业翻译助手，支持 50+ 语言，保持上下文一致性。",
+    sourceUrl: "https://clawhub.com/skills/translation-pro",
     author: "LangAI",
     category: "productivity",
     tags: ["翻译", "多语言"],
     downloads: 178000,
     rating: 4.9,
     featured: true,
-    content: `Translation Pro 是一款专业的 AI 翻译助手，支持 50+ 语言互译，能够理解上下文并保持专业术语的一致性。`,
+    content: `Translation Pro 是一款专业的 AI 翻译助手，支持 50+ 语言互译，能够理解上下文并保持专业术语的一致性。
+
+## 翻译特点
+
+- **上下文感知**：理解句子在段落中的含义
+- **术语一致性**：专业术语翻译统一
+- **本地化适配**：根据目标语言习惯调整表达
+- **批量处理**：支持长文档批量翻译`,
     features: `- 支持 50+ 语言
 - 上下文感知翻译
 - 专业术语一致性
@@ -194,27 +244,33 @@ const skills = [
     name: "Web Scraper",
     slug: "web-scraper",
     description: "智能网页数据抓取，支持复杂页面结构。",
+    sourceUrl: "https://clawhub.com/skills/web-scraper",
     author: "DataMine",
     category: "automation",
     tags: ["爬虫", "数据提取"],
     downloads: 134000,
     rating: 4.7,
     featured: true,
-    content: `Web Scraper 是一个智能网页数据抓取工具，能够自动识别网页结构并提取所需数据。`,
+    content: `Web Scraper 是一个智能网页数据抓取工具，能够自动识别网页结构并提取所需数据。
+
+## 抓取能力
+
+- **静态页面**：标准 HTML 页面数据提取
+- **动态内容**：JavaScript 渲染的内容抓取
+- **分页处理**：自动翻页抓取
+- **数据清洗**：自动格式化和去重`,
     features: `- 自动识别网页结构
 - 支持动态加载内容
 - 分页自动抓取
 - 数据清洗和格式化
 - 导出多种格式：JSON, CSV, Excel`,
     usage: `提供目标网页 URL 和需要提取的数据描述，Web Scraper 会自动完成数据抓取。`,
-    requirements: `- 需要遵守目标网站的 robots.txt
-- 建议添加请求间隔避免被封禁
-- 部分网站可能需要代理支持`,
   },
   {
     name: "File Organizer",
     slug: "file-organizer",
     description: "自动文件分类和整理，保持工作区整洁。",
+    sourceUrl: "https://clawhub.com/skills/file-organizer",
     author: "OrgTools",
     category: "automation",
     tags: ["文件管理", "自动化"],
@@ -231,6 +287,7 @@ const skills = [
     name: "Schedule Automator",
     slug: "schedule-automator",
     description: "日程自动化管理，智能安排会议和提醒。",
+    sourceUrl: "https://clawhub.com/skills/schedule-automator",
     author: "TimeWise",
     category: "automation",
     tags: ["日程", "自动化"],
@@ -247,6 +304,7 @@ const skills = [
     name: "Report Generator",
     slug: "report-generator",
     description: "自动生成各类报告，支持自定义模板。",
+    sourceUrl: "https://clawhub.com/skills/report-generator",
     author: "ReportAI",
     category: "automation",
     tags: ["报告", "自动化", "模板"],
@@ -263,6 +321,7 @@ const skills = [
     name: "Notification Hub",
     slug: "notification-hub",
     description: "智能通知聚合和管理，跨平台消息整合。",
+    sourceUrl: "https://clawhub.com/skills/notification-hub",
     author: "NotifyPro",
     category: "automation",
     tags: ["通知", "消息"],
@@ -281,26 +340,33 @@ const skills = [
     name: "Research Assistant",
     slug: "research-assistant",
     description: "学术研究助手，文献搜索和摘要生成。",
+    sourceUrl: "https://clawhub.com/skills/research-assistant",
     author: "ScholarAI",
     category: "research",
     tags: ["研究", "学术", "文献"],
     downloads: 92000,
     rating: 4.8,
     featured: true,
-    content: `Research Assistant 是学术研究的得力助手，帮助你快速搜索文献、生成摘要和管理参考文献。`,
+    content: `Research Assistant 是学术研究的得力助手，帮助你快速搜索文献、生成摘要和管理参考文献。
+
+## 研究支持
+
+- **文献检索**：多数据库联合搜索
+- **摘要生成**：快速理解论文要点
+- **引用管理**：自动生成参考文献格式
+- **趋势分析**：追踪研究热点`,
     features: `- 学术文献搜索
 - 论文摘要生成
 - 参考文献格式化
 - 引用关系分析
 - 研究趋势追踪`,
     usage: `输入研究主题或关键词，Research Assistant 会搜索相关文献并生成摘要和分析报告。`,
-    requirements: `- 部分数据库需要机构访问权限
-- 建议配合文献管理软件使用`,
   },
   {
     name: "Data Analyzer",
     slug: "data-analyzer",
     description: "数据分析助手，自动生成洞察和可视化建议。",
+    sourceUrl: "https://clawhub.com/skills/data-analyzer",
     author: "DataInsight",
     category: "research",
     tags: ["数据分析", "可视化"],
@@ -317,6 +383,7 @@ const skills = [
     name: "Competitor Monitor",
     slug: "competitor-monitor",
     description: "竞品监控和分析，追踪市场动态。",
+    sourceUrl: "https://clawhub.com/skills/competitor-monitor",
     author: "MarketAI",
     category: "research",
     tags: ["竞品", "市场分析"],
@@ -333,6 +400,7 @@ const skills = [
     name: "Trend Predictor",
     slug: "trend-predictor",
     description: "行业趋势预测，基于数据分析未来走向。",
+    sourceUrl: "https://clawhub.com/skills/trend-predictor",
     author: "TrendAI",
     category: "research",
     tags: ["趋势", "预测", "分析"],
@@ -349,6 +417,7 @@ const skills = [
     name: "Survey Analyzer",
     slug: "survey-analyzer",
     description: "问卷数据分析和报告生成。",
+    sourceUrl: "https://clawhub.com/skills/survey-analyzer",
     author: "SurveyPro",
     category: "research",
     tags: ["问卷", "分析"],
@@ -372,10 +441,10 @@ async function main() {
       update: {
         name: skill.name,
         description: skill.description,
+        sourceUrl: skill.sourceUrl,
         content: skill.content,
         features: skill.features,
         usage: skill.usage,
-        requirements: skill.requirements,
       },
       create: {
         ...skill,
