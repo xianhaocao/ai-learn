@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   description: "探索 AI 世界，从基础到大模型应用，动手实践，紧跟前沿。提供 ChatGPT 使用教程、Prompt Engineering 技巧、AI 入门指南等优质内容。",
   keywords: ["AI", "人工智能", "ChatGPT", "Prompt", "大模型", "机器学习", "深度学习", "学习平台"],
   authors: [{ name: "AI Learn Team" }],
+  manifest: "/manifest.json",
   openGraph: {
     title: "AI Learn - 学习人工智能的知识平台",
     description: "探索 AI 世界，从基础到大模型应用，动手实践，紧跟前沿",
