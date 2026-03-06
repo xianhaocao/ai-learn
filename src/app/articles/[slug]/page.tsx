@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, ExternalLink, Tag } from "lucide-react";
 import { Header } from "@/components/layout";
 import { Footer } from "@/components/layout";
+import { Comments } from "@/components/Comments";
 import { prisma } from "@/lib/prisma";
 
 export default async function ArticlePage({
@@ -101,6 +102,11 @@ export default async function ArticlePage({
               </a>
             </footer>
           )}
+
+          {/* Comments */}
+          <div className="mt-12 border-t border-zinc-800 pt-8">
+            <Comments slug={article.slug} />
+          </div>
         </article>
       </main>
 
