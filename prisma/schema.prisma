@@ -94,26 +94,48 @@ model Article {
   @@index([publishedAt])
 }
 
+// AI 工具
+model AITool {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String   @db.Text
+  url         String
+  icon        String?
+  category    String   // coding, chat, image, video, audio, productivity, research
+  tags        String[]
+  pricing     String?  // free, freemium, paid
+  features    String?  @db.Text
+  rating      Float?   // 1-5
+  featured    Boolean  @default(false)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([featured])
+}
+
 // 学习路径
 model LearningPath {
-  id          String         @id @default(cuid())
+  id          String    @id @default(cuid())
   title       String
-  slug        String         @unique
-  description String?        @db.Text
+  slug        String    @unique
+  description String?   @db.Text
   items       PathItem[]
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 model PathItem {
-  id           String        @id @default(cuid())
-  pathId       String
-  path         LearningPath  @relation(fields: [pathId], references: [id], onDelete: Cascade)
-  articleId    String?
-  title        String
-  description  String?
-  order        Int
-  createdAt    DateTime      @default(now())
+  id          String       @id @default(cuid())
+  pathId      String
+  path        LearningPath @relation(fields: [pathId], references: [id], onDelete: Cascade)
+  articleId   String?
+  title       String
+  description String?
+  order       Int
+  createdAt   DateTime     @default(now())
 
   @@index([pathId])
   @@index([articleId])

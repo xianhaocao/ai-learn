@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useAuth, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-import { Bot, BookOpen, Menu, X, Settings } from "lucide-react";
+import { Bot, BookOpen, Menu, X, Settings, Wrench } from "lucide-react";
 import { useState } from "react";
 
 export function Header() {
@@ -35,6 +35,13 @@ export function Header() {
           >
             <BookOpen className="h-4 w-4" />
             文章
+          </Link>
+          <Link
+            href="/tools"
+            className="flex items-center gap-1.5 text-sm font-medium text-zinc-400 transition hover:text-white"
+          >
+            <Wrench className="h-4 w-4" />
+            工具库
           </Link>
         </div>
 
